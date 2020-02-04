@@ -16,7 +16,7 @@ pip install jieba
 
 clone util_trans.py, util_srt.py, utils.py into directory   
 
-example compiler input: 
+example compiler input:     
 from utils import translate_and_compose  
 input_file = "sample.srt"   
 translate_and_compose(input_file, 'output.srt', 'en', 'de', space=True)   
