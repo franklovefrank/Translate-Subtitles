@@ -120,17 +120,3 @@ def translate_and_compose(input_file, output_file, src_lang: str, target_lang: s
     with open(output_file, 'w', encoding='UTF-8') as f:
         f.write(srt.compose(subtitle))
 
-
-
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
