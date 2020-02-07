@@ -24,26 +24,7 @@ def simple_translate_srt(origin_sub: list, src_lang: str, target_lang: str) -> l
 
 
 def translate_srt(origin_sub: list, src_lang: str, target_lang: str, space=False) -> list:
-    """
-    Translate the srt
-        Afrikaans	af      Albanian	sq      Amharic	am      Arabic	ar      Armenian	hy      Azerbaijani	az
-        Basque	eu          Belarusian	be      Bengali	bn      Bosnian	bs      Bulgarian	bg      Catalan	ca
-        Cebuano	ceb         Chinese(Simplified)	zh-CN           Chinese (Traditional)	zh-TW
-        Corsican	co      Croatian	hr      Czech	cs      Danish	da      Dutch	nl          English	en
-        Esperanto	eo      Estonian	et      Finnish	fi      French	fr      Frisian	fy          Galician	gl
-        Georgian	ka      German	de          Greek	el      Gujarati	gu  Haitian Creole	ht  Hausa	ha
-        Hawaiian	haw     Hebrew	he          Hindi	hi      Hmong	hmn     Hungarian	hu      Icelandic	is
-        Igbo	ig          Indonesian	id      Irish	ga      Italian	it      Japanese	ja      Javanese	jw
-        ...
-        Explore more google translate supported language please visit: https://cloud.google.com/translate/docs/languages
-    English, French, German ... are the language that split each word in a sentence by space
-    Chinese, Japanese are NOT the language that split each word in a sentence by space
-    :param origin_sub: list of srt.Subtitle
-    :param src_lang: source language. the ISO-639-1 language code of the input text
-    :param target_lang: target language. the ISO-639-1 language code of the output text
-    :param space: is the vocabulary of target language split by space
-    :return: translated subtitle content list
-    """
+
     # Initialize a translator
     t = Translator()
 
@@ -72,32 +53,7 @@ def translate_srt(origin_sub: list, src_lang: str, target_lang: str, space=False
 
 
 def translate_and_compose(input_file, output_file, src_lang: str, target_lang: str, encoding='UTF-8', mode='split', both=True, space=False):
-    """
-    Translate the srt file
-        Afrikaans	af      Albanian	sq      Amharic	am      Arabic	ar      Armenian	hy      Azerbaijani	az
-        Basque	eu          Belarusian	be      Bengali	bn      Bosnian	bs      Bulgarian	bg      Catalan	ca
-        Cebuano	ceb         Chinese(Simplified)	zh-CN           Chinese (Traditional)	zh-TW
-        Corsican	co      Croatian	hr      Czech	cs      Danish	da      Dutch	nl          English	en
-        Esperanto	eo      Estonian	et      Finnish	fi      French	fr      Frisian	fy          Galician	gl
-        Georgian	ka      German	de          Greek	el      Gujarati	gu  Haitian Creole	ht  Hausa	ha
-        Hawaiian	haw     Hebrew	he          Hindi	hi      Hmong	hmn     Hungarian	hu      Icelandic	is
-        Igbo	ig          Indonesian	id      Irish	ga      Italian	it      Japanese	ja      Javanese	jw
-        ...
-        Explore more google translate supported language please visit: https://cloud.google.com/translate/docs/languages
-    English, French, German ... are the language that split each word in a sentence by space
-    Chinese, Japanese are NOT the language that split each word in a sentence by space
-    mode: 'naive' or 'split'
-    both: if it is True, save both src_lang and target_lang, otherwise save only target_lang
-    :param input_file: input file path, only srt file supported currently
-    :param output_file: output file path
-    :param src_lang: source language. the ISO-639-1 language code of the input text
-    :param target_lang: target language. the ISO-639-1 language code of the output text
-    :param encoding: encoding of the input file
-    :param mode: 'naive' or 'split'
-    :param both: save both src_lang and target_lang or target_lang only
-    :param space: is the vocabulary of target language split by space
-    :return: None
-    """
+
     srt_file = open(input_file, encoding=encoding)
     subtitle = list(srt.parse(srt_file.read()))
 
